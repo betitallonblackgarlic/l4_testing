@@ -1,6 +1,6 @@
 CXX = g++
 
-CXXFLAGS := -Wall -Werror
+CXXFLAGS := -std=c++14 -Wall -Werror
 
 all : main test
 
