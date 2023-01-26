@@ -9,14 +9,12 @@ int main() {
   std::vector<int> squares = SquaresUntil(6);
 
   std::cout << twos << '\n';
-  for (auto m : multiples)
-  {
+  for (auto m : multiples) {
     std::cout << m << ' ';
   }
   std::cout << '\n';
 
-  for (auto k : squares)
-  {
+  for (auto k : squares) {
     std::cout << k << ' ';
   }
   std::cout << std::endl;
