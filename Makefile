@@ -2,13 +2,15 @@ CXX = g++
 
 CXXFLAGS := -Wall -Werror
 
-OBJS := main.o
-
 all : main test
 
 main : 
 	$(CXX) $(CFLAGS) $(CXXFLAGS) main.cpp -o main
 
+test :
+	$(CXX) $(CFLAGS) $(CXXFLAGS) test.cpp -o test
+
 .PHONY: clean
 clean :
 	rm -f main
+	rm -f test
