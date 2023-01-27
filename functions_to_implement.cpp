@@ -102,7 +102,25 @@ std::vector<long long> SquaresUntil(long long n)
 
 // takes an int, n, and returns the nth value of the fibonacci sequence (1, 1,
 // 2, 3, 5, 8, 13, ...)
-int NthFibonacci(int n);
+int NthFibonacci(int n)
+{
+  if (n == 1 || n == 2)
+  {
+    return 1;
+  }
+
+  int *fib_array = new int[n]{1, 1};
+
+  for (int i = 2; i < n; i++)
+  {
+    fib_array[i] = fib_array[i - 1] + fib_array[i - 2];
+  }
+
+  int fib = fib_array[n - 1];
+  delete[] fib_array;
+
+  return fib;
+}
 
 // takes an int, n, and returns the factorial of that int (n!)
 long long Factorial(long long n)
@@ -116,7 +134,7 @@ long long Factorial(long long n)
     return 1;
   }
 
-  long long *fac_array = new long long[n + 1]{1,1};
+  long long *fac_array = new long long[n + 1]{1, 1};
 
   for (long long i = 2; i <= n; i++)
   {
@@ -130,7 +148,10 @@ long long Factorial(long long n)
 }
 
 // returns -1 if the number is negative and 1 if positive
-int Sign(int num);
+int Sign(int num)
+{
+  return num < 0 ? -1 : 1;
+}
 
 // takes two vectors of doubles, a and b. The function then removes elements
 // from a if they are also in b. If the double is in b, but not in a, nothing
@@ -158,23 +179,62 @@ std::vector<bool> GreaterMask(std::vector<int> nums, int greater_than);
 std::vector<bool> LessMask(std::vector<int> nums, int less_than);
 
 // Sums all numbers in a vector and returns the resulting value
-double Sum(std::vector<double> nums);
+double Sum(std::vector<double> nums)
+{
+  double sum = 0;
+
+  for (auto x : nums)
+  {
+    sum += x;
+  }
+
+  return sum;
+}
 
 // Multiplies all numbers in a vector together and returns the resulting value
-double Product(std::vector<double> nums);
+double Product(std::vector<double> nums)
+{
+  double prod = 1;
+
+  for (auto x : nums)
+  {
+    prod *= x;
+  }
+
+  return prod;
+}
 
 // Adds an double n to each element of a given vector
-std::vector<double> VectorPlusN(std::vector<double> v, double n);
+std::vector<double> VectorPlusN(std::vector<double> v, double n)
+{
+  for (auto &x : v)
+  {
+    x += n;
+  }
+
+  return v;
+}
 
 // Multiples an double n with each element of a given vector
-std::vector<double> VectorTimesN(std::vector<double> v, double n);
+std::vector<double> VectorTimesN(std::vector<double> v, double n)
+{
+  for (auto &x : v)
+  {
+    x *= n;
+  }
+
+  return v;
+}
 
 // takes in two doubles and returns a vector of size n with
 // values n*1, n*2, n*3... up to n*m
 std::vector<double> Multiples(double n, double m);
 
 // returns -1 if the number is negative and 1 if positive
-double Sign(double num);
+double Sign(double num)
+{
+  return num < 0 ? -1 : 1;
+}
 
 // adds n to each element of the vector
 std::vector<int> AddN(std::vector<int> v, int n);
